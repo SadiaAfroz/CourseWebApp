@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.gretty' version "3.0.4"
+}
+
+group 'net.therap'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:8.0.23'
+    implementation 'org.hibernate:hibernate-core:5.4.30.Final'
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    implementation 'javax.servlet:jstl:1.1.2'
+}
+
+gretty {
+    httpPort = 8080
+    contextPath = '/CourseApp'
+}
