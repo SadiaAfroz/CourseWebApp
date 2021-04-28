@@ -12,8 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * @author sadia.afroz
+ * @since 4/27/21
+ */
 @WebServlet("/view/updatetraineeemail")
 public class UpdateTraineeEmail extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String traineeEmail = req.getParameter("traineeemail");

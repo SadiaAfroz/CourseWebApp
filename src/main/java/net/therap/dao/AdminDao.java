@@ -5,7 +5,12 @@ import net.therap.model.Admin;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * @author sadia.afroz
+ * @since 4/27/21
+ */
 public class AdminDao {
+
     EntityManagerFactory entityManagerFactory;
     EntityManager entityManager;
 

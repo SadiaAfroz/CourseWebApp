@@ -12,8 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * @author sadia.afroz
+ * @since 4/27/21
+ */
 @WebServlet("/view/removetraineefromcourse")
 public class RemoveTraineeFromCourse extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int courseId = Integer.parseInt(req.getParameter("courseid"));

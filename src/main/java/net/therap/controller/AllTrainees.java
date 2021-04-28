@@ -13,8 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Set;
 
+/**
+ * @author sadia.afroz
+ * @since 4/27/21
+ */
 @WebServlet("/view/getalltrainees")
 public class AllTrainees extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         TraineeService traineeService = new TraineeService();

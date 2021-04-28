@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * @author sadia.afroz
+ * @since 4/27/21
+ */
 @WebServlet("/view/removecourse")
 public class RemoveCourse extends HttpServlet {
 

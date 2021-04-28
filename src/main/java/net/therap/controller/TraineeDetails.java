@@ -14,6 +14,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
 
+/**
+ * @author sadia.afroz
+ * @since 4/27/21
+ */
 @WebServlet("/view/traineedetailsbycourseid")
 public class TraineeDetails extends HttpServlet {
 
