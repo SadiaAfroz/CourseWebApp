@@ -16,7 +16,7 @@ public class CourseValidator {
         courseDao = new CourseDao();
     }
 
-    public boolean isValidName(String courseName) {
+    public boolean isValidTitle(String courseName) {
         int count = courseDao.isTitleExists(courseName);
         if (count == 0) {
             return true;

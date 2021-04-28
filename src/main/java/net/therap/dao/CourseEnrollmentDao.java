@@ -22,14 +22,12 @@ public class CourseEnrollmentDao {
         this.entityManager = entityManagerFactory.createEntityManager();
     }
 
-    public void addTraineeList(int courseId, Set<Integer> traineeIds) {
+    public void addTraineeList(int courseId, int traineeId) {
 
         Course c = (Course) entityManager.find(Course.class, courseId);
+        Trainee t = (Trainee) entityManager.find(Trainee.class, traineeId);
+        c.addTrainee(t);
 
-        for (int tId : traineeIds) {
-            Trainee t = (Trainee) entityManager.find(Trainee.class, tId);
-            c.addTrainee(t);
-        }
         entityManager.getTransaction().begin();
         entityManager.merge(c);
         entityManager.getTransaction().commit();

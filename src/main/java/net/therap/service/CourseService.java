@@ -2,7 +2,6 @@ package net.therap.service;
 
 import net.therap.dao.CourseDao;
 import net.therap.model.Course;
-import net.therap.view.CoursesView;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,17 +11,6 @@ import java.util.Set;
  * @since 4/8/21
  */
 public class CourseService {
-
-    // processing of viewing single Course
-    public void processCourse(Course course) {
-        System.out.println(course.toString());
-    }
-
-    // processing of viewing list of Courses
-    public void processCourses(Set<Course> courses) {
-        CoursesView coursesView = new CoursesView();
-        coursesView.view(courses);
-    }
 
     public Set<Course> findAll() {
         CourseDao courseDao = new CourseDao();

@@ -8,13 +8,34 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>CourseApp</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 </head>
 <body>
-<form action="login" method="post">
-    Enter Username = <input type="text" name="username"><br>
-    Enter Password = <input type="password" name="password"><br>
-    <input type="submit" value="Login">
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col m6 offset-m3">
+            <div class="card">
+                <div class="card-content">
+                    <h1>
+                        Login
+                    </h1>
+                    <div class="form center-align">
+                        <form action="login" method="post">
+                            <input type="text" name="username" placeholder="Enter Username "><br>
+                            <input type="password" name="password" placeholder="Enter Password"><br>
+                            <button type="submit"  class="btn">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

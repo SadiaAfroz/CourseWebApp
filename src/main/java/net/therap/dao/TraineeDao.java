@@ -36,7 +36,7 @@ public class TraineeDao {
     }
 
     public List<Trainee> findAll() {
-        TypedQuery<Trainee> query = entityManager.createQuery("SELECT t FROM Trainee t", Trainee.class);
+        TypedQuery<Trainee> query = entityManager.createQuery("SELECT t FROM Trainee t ORDER BY t.name ASC", Trainee.class);
         return query.getResultList();
     }
 

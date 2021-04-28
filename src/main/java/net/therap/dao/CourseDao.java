@@ -36,7 +36,7 @@ public class CourseDao {
     }
 
     public List<Course> findAll() {
-        TypedQuery<Course> query = entityManager.createQuery("SELECT c FROM Course c", Course.class);
+        TypedQuery<Course> query = entityManager.createQuery("SELECT c FROM Course c ORDER BY c.title ASC", Course.class);
         return query.getResultList();
     }
 

@@ -2,7 +2,6 @@ package net.therap.service;
 
 import net.therap.dao.TraineeDao;
 import net.therap.model.Trainee;
-import net.therap.view.TraineesView;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,11 +11,6 @@ import java.util.Set;
  * @since 4/8/21
  */
 public class TraineeService {
-
-    public void processTrainees(Set<Trainee> trainees) {
-        TraineesView traineesView = new TraineesView();
-        traineesView.view(trainees);
-    }
 
     public Set<Trainee> findAllByCourseId(int courseId) {
         TraineeDao traineeDao = new TraineeDao();

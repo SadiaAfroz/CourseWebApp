@@ -1,4 +1,4 @@
-package net.therap.servlet;
+package net.therap.controller;
 
 import net.therap.model.Trainee;
 import net.therap.service.TraineeService;
@@ -11,28 +11,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Set;
 
-@WebServlet("/traineedetailsbycourseid")
+@WebServlet("/view/traineedetailsbycourseid")
 public class TraineeDetails extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int courseId = Integer.parseInt(req.getParameter("courseid"));
+        PrintWriter out = resp.getWriter();
         CourseValidator cv = new CourseValidator();
         if (cv.isValidId(courseId)) {
             TraineeService traineeService = new TraineeService();
             Set<Trainee> trainees = traineeService.findAllByCourseId(courseId);
-
-            req.setAttribute("trainees", trainees);
-            RequestDispatcher rd = req.getRequestDispatcher("showTrainees.jsp");
-            rd.forward(req, resp);
-
+            if (trainees.size() < 1) {
+                out.println("No Trainee Assigned to the Course");
+            } else {
+                req.setAttribute("trainees", trainees);
+                RequestDispatcher rd = req.getRequestDispatcher("showTrainees.jsp");
+                rd.forward(req, resp);
+            }
         } else {
-            String message = "Invalid Course id";
-            req.setAttribute("errorMessage", message);
-            RequestDispatcher rd = req.getRequestDispatcher("errorView.jsp");
-            rd.forward(req, resp);
+            out.println("<h1>Invalid Course id</h1>");
         }
 
     }
