@@ -4,6 +4,7 @@ import net.therap.model.Course;
 import net.therap.service.CourseService;
 import net.therap.validator.CourseValidator;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,22 +18,27 @@ import java.io.PrintWriter;
  * @since 4/27/21
  */
 @WebServlet("/view/removecourse")
-public class RemoveCourse extends HttpServlet {
+public class RemoveCourseServlet extends HttpServlet {
 
+    CourseService courseService;
+
+    @Override
+    public void init() throws ServletException {
+        courseService = new CourseService();
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int courseId = Integer.parseInt(req.getParameter("courseid"));
-
-        PrintWriter out = resp.getWriter();
+        String message="";
         CourseValidator courseValidator = new CourseValidator();
         if (courseValidator.isValidId(courseId)) {
-            CourseService courseService = new CourseService();
             Course course = new Course();
             course.setId(courseId);
             courseService.remove(course);
-            out.println("<h1> Course Removed Successfully <h1>");
+            message="Course Removed Successfully";
         } else {
-            out.println("<h1>Not a valid id<h1>");
+            message="Invalid Id";
         }
+        resp.sendRedirect("messageview?message="+message);
     }
 }

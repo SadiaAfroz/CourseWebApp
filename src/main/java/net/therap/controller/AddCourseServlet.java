@@ -10,30 +10,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * @author sadia.afroz
  * @since 4/27/21
  */
 @WebServlet("/view/addnewcourse")
-public class AddCourse extends HttpServlet {
+public class AddCourseServlet extends HttpServlet {
+
+    CourseService courseService;
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void init() throws ServletException {
+        courseService = new CourseService();
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String courseTitle = req.getParameter("coursetitle");
 
-        PrintWriter out = resp.getWriter();
+        String message = "";
         CourseValidator courseValidator = new CourseValidator();
         if (courseValidator.isValidTitle(courseTitle)) {
             Course course = new Course();
             course.setTitle(courseTitle);
-            CourseService courseService = new CourseService();
             courseService.save(course);
 
-            out.println("<h1>Course Added Successfully<h1>");
+            message = "Course Added Successfully";
         } else {
-            out.println("<h1>Title already exits</h1>");
+            message = "Title already exits";
         }
+        resp.sendRedirect("messageview?message=" + message);
     }
 }

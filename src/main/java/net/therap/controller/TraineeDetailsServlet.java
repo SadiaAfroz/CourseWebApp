@@ -19,26 +19,36 @@ import java.util.Set;
  * @since 4/27/21
  */
 @WebServlet("/view/traineedetailsbycourseid")
-public class TraineeDetails extends HttpServlet {
+public class TraineeDetailsServlet extends HttpServlet {
+    TraineeService traineeService ;
+
+    @Override
+    public void init() throws ServletException {
+        traineeService = new TraineeService();
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int courseId = Integer.parseInt(req.getParameter("courseid"));
-        PrintWriter out = resp.getWriter();
+        String message = "";
         CourseValidator cv = new CourseValidator();
         if (cv.isValidId(courseId)) {
-            TraineeService traineeService = new TraineeService();
             Set<Trainee> trainees = traineeService.findAllByCourseId(courseId);
             if (trainees.size() < 1) {
-                out.println("No Trainee Assigned to the Course");
+                message = "No Trainee Assigned to the Course";
+                req.setAttribute("message", message);
+                RequestDispatcher rd = req.getRequestDispatcher("messageView.jsp");
+                rd.forward(req, resp);
             } else {
                 req.setAttribute("trainees", trainees);
                 RequestDispatcher rd = req.getRequestDispatcher("showTrainees.jsp");
                 rd.forward(req, resp);
             }
         } else {
-            out.println("<h1>Invalid Course id</h1>");
+            message = "Invalid Course id";
+            req.setAttribute("message", message);
+            RequestDispatcher rd = req.getRequestDispatcher("messageView.jsp");
+            rd.forward(req, resp);
         }
-
     }
 }

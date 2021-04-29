@@ -19,13 +19,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-<%
-    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
-    if (session.getAttribute("sesionid") == null) {
-        response.sendRedirect("login.jsp");
-    }
-%>
+<c:set var="url" value="../login.jsp"/>
+<c:if test="${sessionScope.sesionid == null}">
+    <c:redirect url="${url}"/>
+</c:if>
 
 <table class="highlight centered responsive-table">
     <thead>
@@ -38,11 +36,10 @@
     <tbody>
     <c:forEach items="${trainees}" var="t">
         <tr>
-            <td>${t.id}</td>
-            <td>${t.name}</td>
-            <td>${t.email}</td>
+            <td><c:out value="${t.id}"/></td>
+            <td><c:out value="${t.name}"/></td>
+            <td><c:out value="${t.email}"/></td>
         </tr>
-
     </c:forEach>
     </tbody>
 </table>

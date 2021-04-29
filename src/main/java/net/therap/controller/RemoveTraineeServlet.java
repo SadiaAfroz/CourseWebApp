@@ -4,6 +4,7 @@ import net.therap.model.Trainee;
 import net.therap.service.TraineeService;
 import net.therap.validator.TraineeValidator;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,25 +17,29 @@ import java.io.PrintWriter;
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/updatetraineename")
-public class UpdateTraineeName extends HttpServlet {
-    
+@WebServlet("/view/removetrainee")
+public class RemoveTraineeServlet extends HttpServlet {
+
+    TraineeService traineeService ;
+
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        String traineeName = req.getParameter("traineename");
+    public void init() throws ServletException {
+        traineeService = new TraineeService();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int traineeId = Integer.parseInt(req.getParameter("traineeid"));
-        PrintWriter out = resp.getWriter();
+        String message = "";
         TraineeValidator traineeValidator = new TraineeValidator();
         if (traineeValidator.isValidId(traineeId)) {
-            TraineeService traineeService = new TraineeService();
             Trainee trainee = new Trainee();
             trainee.setId(traineeId);
-            trainee.setName(traineeName);
-            traineeService.saveOrUpdate(trainee);
-
-            out.println("<h1> Trainee Name updated Successfully <h1>");
+            traineeService.remove(trainee);
+            message = "Trainee Removed Successfully";
         } else {
-            out.println("<h1> Not a valid id <h1>");
+            message = "Invalid Id";
         }
+        resp.sendRedirect("messageview?message="+message);
     }
 }

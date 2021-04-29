@@ -10,20 +10,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * @author sadia.afroz
  * @since 4/27/21
  */
 @WebServlet("/view/enrolltrainee")
-public class EnrollTrainee extends HttpServlet {
+public class EnrollTraineeServlet extends HttpServlet {
+
+    CourseEnrollmentService ces = new CourseEnrollmentService();
+
+    @Override
+    public void init() throws ServletException {
+        ces = new CourseEnrollmentService();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int courseId = Integer.parseInt(req.getParameter("courseid"));
         int traineeId = Integer.parseInt(req.getParameter("traineeid"));
-        PrintWriter out = resp.getWriter();
+        String message = "";
         CourseValidator cv = new CourseValidator();
         if (cv.isValidId(courseId)) {
             int numberOfTrainees = 1;
@@ -31,17 +37,18 @@ public class EnrollTrainee extends HttpServlet {
             if (traineeValidator.hasTraineeCapacity(courseId, numberOfTrainees)) {
                 TraineeValidator tv = new TraineeValidator();
                 if (tv.isValidId(traineeId)) {
-                    CourseEnrollmentService ces = new CourseEnrollmentService();
+
                     ces.enrollTrainees(courseId, traineeId);
-                    out.println("Trainee : " + traineeId + " Enrolled to the Course :" + courseId + " Successfully");
+                    message = "Trainee : " + traineeId + " Enrolled to the Course :" + courseId + " Successfully";
                 } else {
-                    out.println("\n************************* Invalid Trainee Id ***************************");
+                    message = " Invalid Trinee Id";
                 }
             } else {
-                out.println("*************************** Capacity Not Supported **********************");
+                message = "Capacity Not Supported";
             }
         } else {
-            out.println("\n************************* Invalid Course Id ********************");
+            message = "Invalid Course Id ";
         }
+        resp.sendRedirect("messageview?message=" + message);
     }
 }

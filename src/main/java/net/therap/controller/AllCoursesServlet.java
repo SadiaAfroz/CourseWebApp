@@ -17,13 +17,18 @@ import java.util.Set;
  * @since 4/27/21
  */
 @WebServlet("/view/getallcourses")
-public class AllCourses extends HttpServlet {
+public class AllCoursesServlet extends HttpServlet {
+
+    CourseService courseService;
+
+    @Override
+    public void init() throws ServletException {
+        courseService = new CourseService();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CourseService courseService = new CourseService();
         Set<Course> courses = courseService.findAll();
-
         req.setAttribute("courses", courses);
         RequestDispatcher rd = req.getRequestDispatcher("showCourses.jsp");
         rd.forward(req, resp);

@@ -16,7 +16,8 @@ import java.io.IOException;
  * @since 4/27/21
  */
 @WebServlet("/login")
-public class Login extends HttpServlet {
+public class LoginServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");

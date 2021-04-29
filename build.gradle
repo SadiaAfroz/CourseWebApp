@@ -9,14 +9,17 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-    jcenter()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
 }
 
 dependencies {
-    implementation 'mysql:mysql-connector-java:8.0.23'
+    runtime 'mysql:mysql-connector-java:8.0.23'
     implementation 'org.hibernate:hibernate-core:5.4.30.Final'
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
     implementation 'javax.servlet:jstl:1.2'
+    compileClasspath "org.gretty:gretty:3.0.4"
 }
 
 gretty {
