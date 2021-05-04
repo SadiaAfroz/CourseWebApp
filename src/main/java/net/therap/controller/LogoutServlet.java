@@ -11,7 +11,7 @@ import java.io.IOException;
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/logout")
+@WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
 
     @Override
@@ -19,6 +19,6 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = req.getSession();
         session.removeAttribute("sessionid");
         session.invalidate();
-        resp.sendRedirect("../login.jsp");
+        resp.sendRedirect("login.jsp");
     }
 }

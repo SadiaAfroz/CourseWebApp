@@ -24,13 +24,13 @@
     <c:redirect url="${url}"/>
 </c:if>
 
-<h1>Welcome id: <c:out value="${sesionid}"/></h1>
+<h1>Welcome></h1>
 <div class="container">
     <div class="row">
         <div class="col l6">
             <div class="card">
                 <div class="card-content">
-                    <form action="coursedetailsbytraineeid" method="post">
+                    <form action="coursedetailsbytraineeid">
                         <h1>Course details by Traineeid: </h1><br>
                         Enter trainee id : <input type="text" name="traineeid" required><br>
                         <button type="submit" class="btn">Submit</button>
@@ -41,7 +41,7 @@
         <div class="col l6">
             <div class="card">
                 <div class="card-content">
-                    <form action="traineedetailsbycourseid" method="post">
+                    <form action="traineedetailsbycourseid">
                         <h1>Trainee details by Courseid: </h1><br>
                         Enter course id : <input type="text" name="courseid" required><br>
                         <button type="submit" class="btn">Submit</button>
@@ -75,7 +75,7 @@
         <div class="col l6">
             <div class="card">
                 <div class="card-content">
-                    <form action="removecourse">
+                    <form action="removecourse" method="post">
                         <h1>Remove Course:</h1><br>
                         Enter course id : <input type="text" name="courseid" required><br>
                         <button type="submit" class="btn">Remove</button>
@@ -122,7 +122,7 @@
         <div class="col l6">
             <div class="card">
                 <div class="card-content">
-                    <form action="removetrainee">
+                    <form action="removetrainee" method="post">
                         <h1>Remove Trainee : </h1><br>
                         Enter trainee id : <input type="text" name="traineeid" required><br>
                         <button type="submit" class="btn">Remove</button>
@@ -133,7 +133,7 @@
     <div class="col l6">
         <div class="card">
             <div class="card-content">
-                    <form action="enrolltrainee">
+                    <form action="enrolltrainee" method="post">
                         <h1>Enroll New Trainee : </h1><br>
                         Enter trainee id = <input type="text" name="traineeid" required><br>
                         Enter course id = <input type="text" name="courseid" required><br>
@@ -145,7 +145,7 @@
     <div class="col l6">
         <div class="card">
             <div class="card-content">
-                    <form action="removetraineefromcourse">
+                    <form action="removetraineefromcourse" method="post">
                         <h1>Remove Trainee From Course : </h1><br>
                         Enter trainee id = <input type="text" name="traineeid" required><br>
                         Enter course id = <input type="text" name="courseid" required><br>

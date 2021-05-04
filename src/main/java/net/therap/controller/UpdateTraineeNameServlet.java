@@ -4,7 +4,6 @@ import net.therap.model.Trainee;
 import net.therap.service.TraineeService;
 import net.therap.validator.TraineeValidator;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,14 +15,14 @@ import java.io.IOException;
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/updatetraineename")
+@WebServlet("/updatetraineename")
 public class UpdateTraineeNameServlet extends HttpServlet {
 
-    TraineeService traineeService ;
+    private TraineeService traineeService;
 
     @Override
     public void init() throws ServletException {
-        traineeService = new TraineeService();
+        this.traineeService = new TraineeService();
     }
 
     @Override
@@ -37,10 +36,10 @@ public class UpdateTraineeNameServlet extends HttpServlet {
             trainee.setId(traineeId);
             trainee.setName(traineeName);
             traineeService.saveOrUpdate(trainee);
-            message="Trainee Name updated Successfully";
+            message = "Trainee Name updated Successfully";
         } else {
-            message="Invalid Trainee Id";
+            message = "Invalid Trainee Id";
         }
-        resp.sendRedirect("messageview?message="+message);
+        resp.sendRedirect("messageview?message=" + message);
     }
 }

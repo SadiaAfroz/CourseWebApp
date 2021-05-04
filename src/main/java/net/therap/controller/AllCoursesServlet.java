@@ -16,21 +16,21 @@ import java.util.Set;
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/getallcourses")
+@WebServlet("/getallcourses")
 public class AllCoursesServlet extends HttpServlet {
 
-    CourseService courseService;
+    private CourseService courseService;
 
     @Override
     public void init() throws ServletException {
-        courseService = new CourseService();
+        this.courseService = new CourseService();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Set<Course> courses = courseService.findAll();
         req.setAttribute("courses", courses);
-        RequestDispatcher rd = req.getRequestDispatcher("showCourses.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/showCourses.jsp");
         rd.forward(req, resp);
     }
 }

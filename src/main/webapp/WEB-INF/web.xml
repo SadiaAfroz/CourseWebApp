@@ -9,29 +9,123 @@
     <welcome-file-list>
         <welcome-file>/login.jsp</welcome-file>
     </welcome-file-list>
-    <filter>
-        <filter-name>CacheFilterWelcom</filter-name>
-        <filter-class>net.therap.controller.CacheFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>CacheFilterWelcom</filter-name>
-        <url-pattern>/view/welcome.jsp</url-pattern>
-    </filter-mapping>
-    <filter>
-        <filter-name>CacheFilterShowCourse</filter-name>
-        <filter-class>net.therap.controller.CacheFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>CacheFilterShowCourse</filter-name>
-        <url-pattern>/view/showCourses.jsp</url-pattern>
-    </filter-mapping>
 
     <filter>
-        <filter-name>CacheFilterShowTrainee</filter-name>
+        <filter-name>CacheFilter1</filter-name>
         <filter-class>net.therap.controller.CacheFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>CacheFilterShowTrainee</filter-name>
-        <url-pattern>/view/showTrainees.jsp</url-pattern>
+        <filter-name>CacheFilter1</filter-name>
+        <url-pattern>/coursedetailsbytraineeid</url-pattern>
     </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter2</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter2</filter-name>
+        <url-pattern>/traineedetailsbycourseid</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter3</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter3</filter-name>
+        <url-pattern>/addnewcourse</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter4</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter4</filter-name>
+        <url-pattern>/updatecoursetitle</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter5</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter5</filter-name>
+        <url-pattern>/removecourse</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter6</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter6</filter-name>
+        <url-pattern>/addnewtrainee</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter7</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter7</filter-name>
+        <url-pattern>/updatetraineeemail</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter8</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter8</filter-name>
+        <url-pattern>/updatetraineename</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter9</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter9</filter-name>
+        <url-pattern>/removetrainee</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter10</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter10</filter-name>
+        <url-pattern>/enrolltrainee</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter11</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter11</filter-name>
+        <url-pattern>/removetraineefromcourse</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter12</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter12</filter-name>
+        <url-pattern>/getallcourses</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CacheFilter13</filter-name>
+        <filter-class>net.therap.controller.CacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CacheFilter13</filter-name>
+        <url-pattern>/getalltrainees</url-pattern>
+    </filter-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </web-app>

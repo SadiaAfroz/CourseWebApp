@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/view/messageview")
+@WebServlet("/messageview")
 public class MessageViewServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String message= req.getParameter("message");
+        String message = req.getParameter("message");
         req.setAttribute("message", message);
-        RequestDispatcher rd = req.getRequestDispatcher("messageView.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/messageView.jsp");
         rd.forward(req, resp);
     }
 }

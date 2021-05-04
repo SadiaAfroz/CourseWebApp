@@ -1,10 +1,10 @@
-<%@ page import="net.therap.model.Trainee" %>
 <%@ page import="java.util.Set" %>
+<%@ page import="net.therap.model.Course" %>
 <%@ page import="java.io.PrintWriter" %><%--
   Created by IntelliJ IDEA.
   User: sadia.afroz
   Date: 4/27/21
-  Time: 3:11 PM
+  Time: 2:29 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<c:set var="url" value="../login.jsp"/>
+<c:set var="url" value="/login.jsp"/>
 <c:if test="${sessionScope.sesionid == null}">
     <c:redirect url="${url}"/>
 </c:if>
@@ -28,17 +28,15 @@
 <table class="highlight centered responsive-table">
     <thead>
     <tr>
-        <th>Trainee Id</th>
-        <th>Trainee Name</th>
-        <th>Trainee Email</th>
+        <th>Course Id</th>
+        <th>Course Title</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${trainees}" var="t">
+    <c:forEach items="${courses}" var="cr">
         <tr>
-            <td><c:out value="${t.id}"/></td>
-            <td><c:out value="${t.name}"/></td>
-            <td><c:out value="${t.email}"/></td>
+            <td><c:out value="${cr.id}"/></td>
+            <td><c:out value="${cr.title}"/></td>
         </tr>
     </c:forEach>
     </tbody>

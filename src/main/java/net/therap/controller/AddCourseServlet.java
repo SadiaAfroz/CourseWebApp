@@ -15,14 +15,14 @@ import java.io.IOException;
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/addnewcourse")
+@WebServlet("/addnewcourse")
 public class AddCourseServlet extends HttpServlet {
 
-    CourseService courseService;
+    private CourseService courseService;
 
     @Override
     public void init() throws ServletException {
-        courseService = new CourseService();
+        this.courseService = new CourseService();
     }
 
     @Override

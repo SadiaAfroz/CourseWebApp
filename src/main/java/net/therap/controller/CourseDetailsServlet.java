@@ -17,34 +17,34 @@ import java.util.Set;
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/coursedetailsbytraineeid")
+@WebServlet("/coursedetailsbytraineeid")
 public class CourseDetailsServlet extends HttpServlet {
 
-    CourseService courseService;
+    private CourseService courseService;
 
     @Override
     public void init() throws ServletException {
-        courseService = new CourseService();
+        this.courseService = new CourseService();
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int traineeId = Integer.parseInt(req.getParameter("traineeid"));
         TraineeValidator tv = new TraineeValidator();
         if (tv.isValidId(traineeId)) {
             Set<Course> courses = courseService.findAllByTraineeId(traineeId);
             if (courses.size() < 1) {
                 req.setAttribute("message", "No Course Assigned to the trainee");
-                RequestDispatcher rd = req.getRequestDispatcher("messageView.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/messageView.jsp");
                 rd.forward(req, resp);
             } else {
                 req.setAttribute("courses", courses);
-                RequestDispatcher rd = req.getRequestDispatcher("showCourses.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/showCourses.jsp");
                 rd.forward(req, resp);
             }
         } else {
             req.setAttribute("message", "Invalid trainee id");
-            RequestDispatcher rd = req.getRequestDispatcher("messageView.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/messageView.jsp");
             rd.forward(req, resp);
         }
 

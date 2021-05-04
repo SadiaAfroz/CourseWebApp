@@ -4,27 +4,25 @@ import net.therap.model.Course;
 import net.therap.service.CourseService;
 import net.therap.validator.CourseValidator;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/updatecoursetitle")
+@WebServlet("/updatecoursetitle")
 public class UpdateCourseTitleServlet extends HttpServlet {
 
-    CourseService courseService;
+    private CourseService courseService;
 
     @Override
     public void init() throws ServletException {
-        courseService = new CourseService();
+        this.courseService = new CourseService();
     }
 
     @Override
@@ -43,6 +41,6 @@ public class UpdateCourseTitleServlet extends HttpServlet {
         } else {
             message = "Invalid Course Id";
         }
-        resp.sendRedirect("messageview?message="+message);
+        resp.sendRedirect("messageview?message=" + message);
     }
 }

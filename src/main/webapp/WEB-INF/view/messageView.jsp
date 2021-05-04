@@ -17,13 +17,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-<%
-    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
-    if (session.getAttribute("sesionid") == null) {
-        response.sendRedirect("login.jsp");
-    }
-%>
+<c:set var="url" value="../login.jsp"/>
+<c:if test="${sessionScope.sesionid == null}">
+    <c:redirect url="${url}"/>
+</c:if>
+
 <h1>
     <c:out value="${message}"/>
 </h1>

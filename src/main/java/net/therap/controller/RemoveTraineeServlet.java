@@ -4,31 +4,29 @@ import net.therap.model.Trainee;
 import net.therap.service.TraineeService;
 import net.therap.validator.TraineeValidator;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/removetrainee")
+@WebServlet("/removetrainee")
 public class RemoveTraineeServlet extends HttpServlet {
 
-    TraineeService traineeService ;
+    private TraineeService traineeService;
 
     @Override
     public void init() throws ServletException {
-        traineeService = new TraineeService();
+        this.traineeService = new TraineeService();
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int traineeId = Integer.parseInt(req.getParameter("traineeid"));
         String message = "";
         TraineeValidator traineeValidator = new TraineeValidator();
@@ -40,6 +38,6 @@ public class RemoveTraineeServlet extends HttpServlet {
         } else {
             message = "Invalid Id";
         }
-        resp.sendRedirect("messageview?message="+message);
+        resp.sendRedirect("messageview?message=" + message);
     }
 }

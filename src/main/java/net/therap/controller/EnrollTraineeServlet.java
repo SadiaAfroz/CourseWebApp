@@ -15,18 +15,18 @@ import java.io.IOException;
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/enrolltrainee")
+@WebServlet("/enrolltrainee")
 public class EnrollTraineeServlet extends HttpServlet {
 
-    CourseEnrollmentService ces = new CourseEnrollmentService();
+    private CourseEnrollmentService ces;
 
     @Override
     public void init() throws ServletException {
-        ces = new CourseEnrollmentService();
+        this.ces = new CourseEnrollmentService();
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int courseId = Integer.parseInt(req.getParameter("courseid"));
         int traineeId = Integer.parseInt(req.getParameter("traineeid"));
         String message = "";

@@ -11,24 +11,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Set;
 
 /**
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/traineedetailsbycourseid")
+@WebServlet("/traineedetailsbycourseid")
 public class TraineeDetailsServlet extends HttpServlet {
-    TraineeService traineeService ;
+
+    private TraineeService traineeService;
 
     @Override
     public void init() throws ServletException {
-        traineeService = new TraineeService();
+        this.traineeService = new TraineeService();
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int courseId = Integer.parseInt(req.getParameter("courseid"));
         String message = "";
         CourseValidator cv = new CourseValidator();
@@ -37,17 +37,17 @@ public class TraineeDetailsServlet extends HttpServlet {
             if (trainees.size() < 1) {
                 message = "No Trainee Assigned to the Course";
                 req.setAttribute("message", message);
-                RequestDispatcher rd = req.getRequestDispatcher("messageView.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/messageView.jsp");
                 rd.forward(req, resp);
             } else {
                 req.setAttribute("trainees", trainees);
-                RequestDispatcher rd = req.getRequestDispatcher("showTrainees.jsp");
+                RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/showTrainees.jsp");
                 rd.forward(req, resp);
             }
         } else {
             message = "Invalid Course id";
             req.setAttribute("message", message);
-            RequestDispatcher rd = req.getRequestDispatcher("messageView.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/messageView.jsp");
             rd.forward(req, resp);
         }
     }

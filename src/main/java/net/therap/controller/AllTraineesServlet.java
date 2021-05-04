@@ -17,14 +17,14 @@ import java.util.Set;
  * @author sadia.afroz
  * @since 4/27/21
  */
-@WebServlet("/view/getalltrainees")
+@WebServlet("/getalltrainees")
 public class AllTraineesServlet extends HttpServlet {
 
-    TraineeService traineeService ;
+    private TraineeService traineeService;
 
     @Override
     public void init() throws ServletException {
-        traineeService = new TraineeService();
+        this.traineeService = new TraineeService();
     }
 
     @Override
@@ -32,7 +32,7 @@ public class AllTraineesServlet extends HttpServlet {
         Set<Trainee> trainees = traineeService.findAll();
 
         req.setAttribute("trainees", trainees);
-        RequestDispatcher rd = req.getRequestDispatcher("showTrainees.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/view/showTrainees.jsp");
         rd.forward(req, resp);
     }
 }
