@@ -16,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </head>
-<body>
+<body style="background: url('././img/single_book.jpg'); background-size: cover; background-attachment: fixed;">
 <div class="container">
     <div class="row">
         <div class="col m6 offset-m3">
@@ -29,9 +29,27 @@
                         <form action="login" method="post">
                             <input type="text" name="username" placeholder="Enter Username "><br>
                             <input type="password" name="password" placeholder="Enter Password"><br>
-                            <button type="submit"  class="btn">Login</button>
+                            <button type="submit" class="btn">Login</button>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col m6 offset-m3">
+            <div >
+                <div class="form center-align">
+                    <form action="getallcourses">
+                        <button type="submit" class="btn">View All Courses</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col m6 offset-m3">
+            <div >
+                <div class="form center-align">
+                    <form action="getalltrainees">
+                        <button type="submit" class="btn">View All Trainees</button>
+                    </form>
                 </div>
             </div>
         </div>

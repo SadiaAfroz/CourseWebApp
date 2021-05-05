@@ -25,7 +25,7 @@ public class CacheFilter implements Filter {
         HttpSession session = req.getSession(false);
 
         if (session == null || session.getAttribute("sesionid") == null) {
-            resp.sendRedirect("login.jsp");
+            resp.sendRedirect("home");
         } else {
             chain.doFilter(request, response);
         }

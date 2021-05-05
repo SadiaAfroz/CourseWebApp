@@ -17,18 +17,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </head>
-<body>
+<body style="background: url('img/books.jpeg'); background-size: cover; background-attachment: fixed;">
 
-<c:set var="url" value="../login.jsp"/>
+<c:set var="url" value="../home"/>
 <c:if test="${sessionScope.sesionid == null}">
     <c:redirect url="${url}"/>
 </c:if>
 
-<h1>Welcome></h1>
+<h1 class="white-text">Welcome</h1>
 <div class="container">
     <div class="row">
         <div class="col l6">
-            <div class="card">
+            <div class="card yellow lighten-3">
                 <div class="card-content">
                     <form action="coursedetailsbytraineeid">
                         <h1>Course details by Traineeid: </h1><br>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="col l6">
-            <div class="card">
+            <div class="card yellow lighten-3">
                 <div class="card-content">
                     <form action="traineedetailsbycourseid">
                         <h1>Trainee details by Courseid: </h1><br>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="col l6">
-            <div class="card">
+            <div class="card yellow lighten-3">
                 <div class="card-content">
                     <form action="addnewcourse" method="post">
                         <h1>Add New Course: </h1><br>
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="col l6">
-            <div class="card">
+            <div class="card yellow lighten-3">
                 <div class="card-content">
                     <form action="updatecoursetitle" method="post">
                         <h1>Update Course Title: </h1><br>
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="col l6">
-            <div class="card">
+            <div class="card yellow lighten-3">
                 <div class="card-content">
                     <form action="removecourse" method="post">
                         <h1>Remove Course:</h1><br>
@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="col l6">
-            <div class="card">
+            <div class="card yellow lighten-3">
                 <div class="card-content">
                     <form action="addnewtrainee" method="post">
                         <h1>Add New Trainee: </h1><br>
@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="col l6">
-            <div class="card">
+            <div class="card yellow lighten-3">
                 <div class="card-content">
                     <form action="updatetraineeemail" method="post">
                         <h1>Update Trainee Email : </h1><br>
@@ -108,7 +108,7 @@
             </div>
         </div>
         <div class="col l6">
-            <div class="card">
+            <div class="card yellow lighten-3">
                 <div class="card-content">
                     <form action="updatetraineename" method="post">
                         <h1>Update Trainee Name : </h1><br>
@@ -120,7 +120,7 @@
             </div>
         </div>
         <div class="col l6">
-            <div class="card">
+            <div class="card yellow lighten-3">
                 <div class="card-content">
                     <form action="removetrainee" method="post">
                         <h1>Remove Trainee : </h1><br>
@@ -131,7 +131,7 @@
             </div>
         </div>
     <div class="col l6">
-        <div class="card">
+        <div class="card yellow lighten-3">
             <div class="card-content">
                     <form action="enrolltrainee" method="post">
                         <h1>Enroll New Trainee : </h1><br>
@@ -143,7 +143,7 @@
         </div>
     </div>
     <div class="col l6">
-        <div class="card">
+        <div class="card yellow lighten-3">
             <div class="card-content">
                     <form action="removetraineefromcourse" method="post">
                         <h1>Remove Trainee From Course : </h1><br>
@@ -155,7 +155,7 @@
         </div>
     </div>
     <div class="col l6">
-        <div class="card">
+        <div class="card yellow lighten-3">
             <div class="card-content">
                     <form action="getallcourses">
                         <h1>Get All Courses: </h1><br>
@@ -165,7 +165,7 @@
         </div>
     </div>
     <div class="col l6">
-        <div class="card">
+        <div class="card yellow lighten-3">
             <div class="card-content">
                     <form action="getalltrainees">
                         <h1>Get All Trainees: </h1><br>
@@ -175,9 +175,9 @@
         </div>
     </div>
     <div class="col l12">
-        <div class="card">
+        <div class="card yellow lighten-2">
             <div class="card-content">
-                    <form action="logout">
+                    <form action="logout" class="center-align">
                         <button type="submit" class="btn">Logout</button>
                     </form>
                 </div>

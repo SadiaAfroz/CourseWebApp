@@ -7,7 +7,7 @@
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 
     <welcome-file-list>
-        <welcome-file>/login.jsp</welcome-file>
+        <welcome-file>/home</welcome-file>
     </welcome-file-list>
 
     <filter>
@@ -98,34 +98,4 @@
         <filter-name>CacheFilter11</filter-name>
         <url-pattern>/removetraineefromcourse</url-pattern>
     </filter-mapping>
-    <filter>
-        <filter-name>CacheFilter12</filter-name>
-        <filter-class>net.therap.controller.CacheFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>CacheFilter12</filter-name>
-        <url-pattern>/getallcourses</url-pattern>
-    </filter-mapping>
-    <filter>
-        <filter-name>CacheFilter13</filter-name>
-        <filter-class>net.therap.controller.CacheFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>CacheFilter13</filter-name>
-        <url-pattern>/getalltrainees</url-pattern>
-    </filter-mapping>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </web-app>

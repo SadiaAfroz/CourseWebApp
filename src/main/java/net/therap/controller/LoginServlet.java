@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("sesionid", admin.getId());
             doGet(req, resp);
         } else {
-            resp.sendRedirect("login.jsp");
+            resp.sendRedirect("home");
         }
     }
 }
