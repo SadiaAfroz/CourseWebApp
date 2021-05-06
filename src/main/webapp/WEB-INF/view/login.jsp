@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="col m6 offset-m3">
-            <div >
+            <div>
                 <div class="form center-align">
                     <form action="getallcourses">
                         <button type="submit" class="btn">View All Courses</button>
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="col m6 offset-m3">
-            <div >
+            <div>
                 <div class="form center-align">
                     <form action="getalltrainees">
                         <button type="submit" class="btn">View All Trainees</button>

@@ -11,8 +11,8 @@ import java.util.List;
  */
 public class AdminDao {
 
-    EntityManagerFactory entityManagerFactory;
-    EntityManager entityManager;
+    private EntityManagerFactory entityManagerFactory;
+    private EntityManager entityManager;
 
     public AdminDao() {
         this.entityManagerFactory = Persistence.createEntityManagerFactory("courseEnrollment");

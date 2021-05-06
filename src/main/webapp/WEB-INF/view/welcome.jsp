@@ -19,7 +19,7 @@
 </head>
 <body style="background: url('img/books.jpeg'); background-size: cover; background-attachment: fixed;">
 
-<c:set var="url" value="../home"/>
+<c:set var="url" value="/home"/>
 <c:if test="${sessionScope.sesionid == null}">
     <c:redirect url="${url}"/>
 </c:if>

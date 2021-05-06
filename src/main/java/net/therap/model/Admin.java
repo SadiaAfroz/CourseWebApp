@@ -11,9 +11,9 @@ public class Admin implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String username;
-    String password;
+    private int id;
+    private String username;
+    private String password;
 
     public Admin(String username, String password) {
         this.username = username;

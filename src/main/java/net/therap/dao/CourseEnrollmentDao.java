@@ -14,8 +14,8 @@ import java.util.Set;
  */
 public class CourseEnrollmentDao {
 
-    EntityManagerFactory entityManagerFactory;
-    EntityManager entityManager;
+    private EntityManagerFactory entityManagerFactory;
+    private EntityManager entityManager;
 
     public CourseEnrollmentDao() {
         this.entityManagerFactory = Persistence.createEntityManagerFactory("courseEnrollment");

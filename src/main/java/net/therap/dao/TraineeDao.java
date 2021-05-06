@@ -13,8 +13,8 @@ import java.util.Set;
  */
 public class TraineeDao {
 
-    EntityManagerFactory entityManagerFactory;
-    EntityManager entityManager;
+    private EntityManagerFactory entityManagerFactory;
+    private EntityManager entityManager;
 
     public TraineeDao() {
         this.entityManagerFactory = Persistence.createEntityManagerFactory("courseEnrollment");

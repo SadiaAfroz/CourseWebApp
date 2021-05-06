@@ -19,9 +19,9 @@ public class Trainee implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String name;
-    String email;
+    private int id;
+    private String name;
+    private String email;
 
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
